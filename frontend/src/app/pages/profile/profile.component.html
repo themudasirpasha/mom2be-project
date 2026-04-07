@@ -1,0 +1,21 @@
+<section class="profile-page">
+  <div class="profile-hero">
+    <div>
+      <span class="hero-kicker">Profile</span>
+      <h1>{{ getProfileName() }}</h1>
+      <p>Your pregnancy profile, support details, and important personal information in one calm place.</p>
+    </div>
+    <div class="hero-avatar">👤</div>
+  </div>
+
+  <div *ngIf="profile; else emptyProfile" class="profile-grid">
+    <article *ngFor="let entry of objectEntries(profile)" class="profile-card">
+      <span class="profile-key">{{ formatKey(entry.key) }}</span>
+      <div class="profile-value">{{ entry.value }}</div>
+    </article>
+  </div>
+
+  <ng-template #emptyProfile>
+    <div class="empty-panel">Profile details will appear here after the profile API responds.</div>
+  </ng-template>
+</section>

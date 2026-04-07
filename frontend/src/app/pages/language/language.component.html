@@ -1,0 +1,47 @@
+<section class="welcome-shell">
+  <div class="welcome-hero">
+    <div class="welcome-copy">
+      <span class="eyebrow">Mom2Be</span>
+      <h1>Welcome to Mom2Be</h1>
+      <p>Your AI pregnancy companion with reminders, symptom support, local schemes, and gentle daily guidance.</p>
+    </div>
+
+    <div class="welcome-illustration">
+      <div class="glow-orb glow-one"></div>
+      <div class="glow-orb glow-two"></div>
+      <div class="mother-card">
+        <div class="mother-emoji">🤰</div>
+        <div class="mother-caption">Care that stays with you every week.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="language-panel">
+    <div class="panel-header">
+      <h2>{{ 'selectLanguage' | translate }}</h2>
+      <p>Choose your preferred language to personalize the full experience from start to finish.</p>
+    </div>
+
+    <div class="language-grid">
+      <button class="language-option" (click)="select('kannada')">
+        <span class="language-script">ಕನ್ನಡ</span>
+        <span class="language-name">Kannada</span>
+      </button>
+
+      <button class="language-option" (click)="select('hindi')">
+        <span class="language-script">हिंदी</span>
+        <span class="language-name">Hindi</span>
+      </button>
+
+      <button class="language-option" (click)="select('urdu')">
+        <span class="language-script">اردو</span>
+        <span class="language-name">Urdu</span>
+      </button>
+
+      <button class="language-option" (click)="select('english')">
+        <span class="language-script">English</span>
+        <span class="language-name">English</span>
+      </button>
+    </div>
+  </div>
+</section>

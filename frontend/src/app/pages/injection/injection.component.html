@@ -1,0 +1,54 @@
+<section class="premium-page injection-theme">
+  <div class="hero-panel">
+    <div class="hero-copy">
+      <span class="hero-kicker">Protection Plan</span>
+      <h1>{{ 'injection' | translate }}</h1>
+      <p>Track upcoming vaccines and prenatal injections in a cleaner, calmer layout made for quick understanding.</p>
+    </div>
+    <div class="hero-badge">
+      <span class="hero-icon">🩺</span>
+      <span class="hero-pill">{{ data.length || 0 }} alerts</span>
+    </div>
+  </div>
+
+  <div *ngIf="data.length; else noInjectionData" class="premium-grid">
+    <article *ngFor="let item of data" class="feature-card">
+      <div class="feature-header">
+        <div>
+          <div class="feature-eyebrow">Scheduled Care</div>
+          <h2>{{ getPrimaryText(item) }}</h2>
+          <p>{{ getSecondaryText(item) }}</p>
+        </div>
+        <span class="feature-chip">{{ getAccentText(item) }}</span>
+      </div>
+
+      <div *ngIf="isObject(item)" class="detail-panel">
+        <div *ngFor="let entry of objectEntries(item)" class="detail-row">
+          <span class="detail-key">{{ formatKey(entry.key) }}</span>
+
+          <ng-container *ngIf="isArray(entry.value); else scalarValue">
+            <div class="tag-row">
+              <span *ngFor="let nestedItem of entry.value" class="soft-tag">{{ nestedItem }}</span>
+            </div>
+          </ng-container>
+
+          <ng-template #scalarValue>
+            <span class="detail-value">{{ entry.value }}</span>
+          </ng-template>
+        </div>
+      </div>
+
+      <div *ngIf="!isObject(item)" class="message-panel">
+        {{ item }}
+      </div>
+    </article>
+  </div>
+
+  <ng-template #noInjectionData>
+    <article class="empty-state">
+      <div class="empty-icon">✨</div>
+      <h2>No injection alerts yet</h2>
+      <p>Your prenatal vaccine schedule will appear here when reminders are available.</p>
+    </article>
+  </ng-template>
+</section>

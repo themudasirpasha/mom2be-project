@@ -1,0 +1,54 @@
+<section class="premium-page schemes-theme">
+  <div class="hero-panel">
+    <div class="hero-copy">
+      <span class="hero-kicker">Support & Benefits</span>
+      <h1>{{ 'schemes' | translate }}</h1>
+      <p>Explore beautifully organized government and local support options designed to make this journey lighter and more secure.</p>
+    </div>
+    <div class="hero-badge">
+      <span class="hero-icon">🏥</span>
+      <span class="hero-pill">{{ data.length || 0 }} options</span>
+    </div>
+  </div>
+
+  <div *ngIf="data.length; else noSchemesData" class="premium-grid">
+    <article *ngFor="let item of data" class="feature-card">
+      <div class="feature-header">
+        <div>
+          <div class="feature-eyebrow">Recommended Scheme</div>
+          <h2>{{ getPrimaryText(item) }}</h2>
+          <p>{{ getSecondaryText(item) }}</p>
+        </div>
+        <span class="feature-chip">{{ getAccentText(item) }}</span>
+      </div>
+
+      <div *ngIf="isObject(item)" class="detail-panel">
+        <div *ngFor="let entry of objectEntries(item)" class="detail-row">
+          <span class="detail-key">{{ formatKey(entry.key) }}</span>
+
+          <ng-container *ngIf="isArray(entry.value); else scalarValue">
+            <div class="tag-row">
+              <span *ngFor="let nestedItem of entry.value" class="soft-tag">{{ nestedItem }}</span>
+            </div>
+          </ng-container>
+
+          <ng-template #scalarValue>
+            <span class="detail-value">{{ entry.value }}</span>
+          </ng-template>
+        </div>
+      </div>
+
+      <div *ngIf="!isObject(item)" class="message-panel">
+        {{ item }}
+      </div>
+    </article>
+  </div>
+
+  <ng-template #noSchemesData>
+    <article class="empty-state">
+      <div class="empty-icon">🌷</div>
+      <h2>No schemes available yet</h2>
+      <p>Once support programs are matched for you, they’ll appear here in an easy-to-read format.</p>
+    </article>
+  </ng-template>
+</section>

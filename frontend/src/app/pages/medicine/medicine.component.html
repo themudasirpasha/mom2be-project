@@ -1,0 +1,54 @@
+<section class="premium-page medicine-theme">
+  <div class="hero-panel">
+    <div class="hero-copy">
+      <span class="hero-kicker">Daily Wellness</span>
+      <h1>{{ 'medicine' | translate }}</h1>
+      <p>Beautifully organized reminders to help you stay consistent with every tablet, tonic, and daily care habit.</p>
+    </div>
+    <div class="hero-badge">
+      <span class="hero-icon">💊</span>
+      <span class="hero-pill">{{ data.length || 0 }} reminders</span>
+    </div>
+  </div>
+
+  <div *ngIf="data.length; else noMedicineData" class="premium-grid">
+    <article *ngFor="let item of data" class="feature-card">
+      <div class="feature-header">
+        <div>
+          <div class="feature-eyebrow">Medicine Reminder</div>
+          <h2>{{ getPrimaryText(item) }}</h2>
+          <p>{{ getSecondaryText(item) }}</p>
+        </div>
+        <span class="feature-chip">{{ getAccentText(item) }}</span>
+      </div>
+
+      <div *ngIf="isObject(item)" class="detail-panel">
+        <div *ngFor="let entry of objectEntries(item)" class="detail-row">
+          <span class="detail-key">{{ formatKey(entry.key) }}</span>
+
+          <ng-container *ngIf="isArray(entry.value); else scalarValue">
+            <div class="tag-row">
+              <span *ngFor="let nestedItem of entry.value" class="soft-tag">{{ nestedItem }}</span>
+            </div>
+          </ng-container>
+
+          <ng-template #scalarValue>
+            <span class="detail-value">{{ entry.value }}</span>
+          </ng-template>
+        </div>
+      </div>
+
+      <div *ngIf="!isObject(item)" class="message-panel">
+        {{ item }}
+      </div>
+    </article>
+  </div>
+
+  <ng-template #noMedicineData>
+    <article class="empty-state">
+      <div class="empty-icon">🌸</div>
+      <h2>No medicine reminders yet</h2>
+      <p>Your reminders will appear here as soon as your care plan is available.</p>
+    </article>
+  </ng-template>
+</section>

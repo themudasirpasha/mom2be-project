@@ -1,0 +1,124 @@
+.alerts-page {
+  display: grid;
+  gap: 22px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.alerts-hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 30px;
+  border-radius: 30px;
+  color: #fff;
+  background: radial-gradient(circle at top left, rgba(255,255,255,.24), transparent 35%), linear-gradient(135deg, #7f6bff, #ff8fab);
+  box-shadow: 0 26px 60px rgba(139, 101, 187, 0.16);
+}
+
+.hero-kicker {
+  display: inline-flex;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.16);
+  font-size: .8rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.alerts-hero h1 {
+  margin: 10px 0 8px;
+}
+
+.alerts-hero p {
+  max-width: 500px;
+  margin: 0;
+  color: rgba(255,255,255,.9);
+}
+
+.hero-avatar {
+  display: grid;
+  place-items: center;
+  width: 84px;
+  height: 84px;
+  border-radius: 28px;
+  background: rgba(255,255,255,.16);
+  font-size: 2rem;
+}
+
+.alerts-list {
+  display: grid;
+  gap: 16px;
+}
+
+.alert-card,
+.empty-panel {
+  padding: 22px;
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(252,245,255,.94));
+  border: 1px solid rgba(143, 95, 255, 0.12);
+  box-shadow: 0 18px 42px rgba(139, 101, 187, 0.1);
+}
+
+.alert-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.alert-head h2 {
+  margin: 0;
+  color: #452262;
+  font-size: 1.25rem;
+}
+
+.alert-head p {
+  margin: 4px 0 0;
+  color: #7b6591;
+}
+
+.alert-badge {
+  align-self: flex-start;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(127,107,255,.12), rgba(255,143,171,.16));
+  color: #7a4fb4;
+  font-weight: 700;
+}
+
+.alert-message {
+  margin: 0 0 12px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(255,248,252,.9);
+  color: #5c406f;
+  white-space: pre-line;
+}
+
+.alert-row {
+  display: grid;
+  gap: 4px;
+  padding: 12px 0;
+  border-top: 1px solid rgba(143,95,255,.08);
+}
+
+.field-key {
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: #9567b4;
+  font-weight: 700;
+}
+
+.field-value,
+.empty-panel {
+  color: #4d2f67;
+  white-space: pre-line;
+}
+
+@media (max-width: 800px) {
+  .alerts-hero {
+    flex-direction: column;
+  }
+}

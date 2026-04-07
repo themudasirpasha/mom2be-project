@@ -1,0 +1,31 @@
+﻿@import '~bootstrap/dist/css/bootstrap.min.css';
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, #f3e7ff, #ffffff);
+}
+
+body.lang-english {
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+}
+
+body.lang-kannada {
+  font-family: 'Noto Sans Kannada', 'Tunga', 'Kedage', sans-serif;
+}
+
+body.lang-hindi {
+  font-family: 'Nirmala UI', 'Mangal', 'Noto Sans Devanagari', sans-serif;
+}
+
+body.lang-urdu {
+  font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', 'Segoe UI', serif;
+}
+
+mat-card {
+  border-radius: 16px;
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}

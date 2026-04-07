@@ -1,0 +1,86 @@
+.symptom-container {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.symptom-entry {
+  display: grid;
+  gap: 18px;
+  padding: 22px;
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(252,245,255,0.94));
+  border: 1px solid rgba(143, 95, 255, 0.12);
+  box-shadow: 0 20px 48px rgba(139, 101, 187, 0.1);
+}
+
+.prompt-block h3 {
+  margin: 0 0 6px;
+  color: #452262;
+}
+
+.prompt-block p {
+  margin: 0;
+  color: #7c6394;
+}
+
+.symptom-box {
+  min-height: 140px;
+  border-radius: 20px;
+  border: 1px solid rgba(143, 95, 255, 0.14);
+}
+
+.symptom-box:focus {
+  border-color: rgba(143, 95, 255, 0.28);
+  box-shadow: 0 0 0 0.2rem rgba(143, 95, 255, 0.1);
+}
+
+.suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.suggestion-chip {
+  padding: 10px 14px;
+  border: 1px solid rgba(143, 95, 255, 0.14);
+  border-radius: 999px;
+  background: linear-gradient(180deg, #fff, #f8efff);
+  color: #5e3f7c;
+  box-shadow: 0 10px 22px rgba(139, 101, 187, 0.08);
+}
+
+.check-button {
+  min-height: 52px;
+  border-radius: 18px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #8e5fff, #b872ff);
+  border: 0;
+}
+
+.result {
+  padding: 22px;
+  border: 1px solid #d9dee8;
+  border-radius: 18px;
+  background-color: #f8f9fa;
+}
+
+.response-block,
+.response-section {
+  margin-top: 16px;
+}
+
+.section-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.response-line {
+  margin-bottom: 10px;
+  white-space: pre-line;
+}
+
+.response-bullet {
+  margin-left: 18px;
+  margin-bottom: 8px;
+}

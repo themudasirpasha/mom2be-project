@@ -1,0 +1,13 @@
+<app-card [title]="'chat' | translate">
+  <div class="chat-container">
+    <div class="messages" *ngIf="messages.length > 0">
+      <div *ngFor="let msg of messages" class="message {{ msg.type }}">
+        {{ msg.text }}
+      </div>
+    </div>
+    <div class="input-group">
+      <input type="text" [(ngModel)]="message" [placeholder]="'typeMessage' | translate" class="form-control">
+      <button (click)="send()" class="btn btn-primary">{{ 'send' | translate }}</button>
+    </div>
+  </div>
+</app-card>

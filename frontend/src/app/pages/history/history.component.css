@@ -1,0 +1,22 @@
+.data-list {
+  display: grid;
+  gap: 16px;
+}
+
+.data-item {
+  padding: 16px;
+  border: 1px solid #d9dee8;
+  border-radius: 12px;
+  background: #f8f9fa;
+}
+
+.history-role {
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #495057;
+}
+
+.data-text {
+  margin: 0;
+  white-space: pre-line;
+}

@@ -1,0 +1,73 @@
+<section class="register-shell">
+  <div class="register-hero">
+    <div class="register-copy">
+      <span class="eyebrow">Start Journey</span>
+      <h1>{{ 'registration' | translate }}</h1>
+      <p>Create your pregnancy profile once, and Mom2Be will personalize reminders, support, and guidance for every week ahead.</p>
+
+      <div class="hero-stats">
+        <div class="stat-card">
+          <span class="stat-label">{{ 'language' | translate }}</span>
+          <strong>{{ form.language | translate }}</strong>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">AI Support</span>
+          <strong>24 x 7</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-panel">
+    <form (ngSubmit)="submit()" class="register-form">
+      <div class="field-grid">
+        <div class="field-block full">
+          <label for="mother_name" class="form-label">{{ 'motherName' | translate }}</label>
+          <input type="text" id="mother_name" [(ngModel)]="form.mother_name" name="mother_name" class="form-control premium-input" required>
+        </div>
+
+        <div class="field-block">
+          <label for="lmp_date" class="form-label">{{ 'lmpDate' | translate }}</label>
+          <input type="date" id="lmp_date" [(ngModel)]="form.lmp_date" name="lmp_date" class="form-control premium-input" required>
+        </div>
+
+        <div class="field-block">
+          <label for="language" class="form-label">{{ 'language' | translate }}</label>
+          <input type="text" id="language" [value]="form.language | translate" name="language" class="form-control premium-input" readonly>
+        </div>
+
+        <div class="field-block">
+          <label for="phone" class="form-label">{{ 'phone' | translate }}</label>
+          <input type="tel" id="phone" [(ngModel)]="form.phone" name="phone" class="form-control premium-input">
+        </div>
+
+        <div class="field-block">
+          <label for="husband_phone" class="form-label">{{ 'husbandPhone' | translate }}</label>
+          <input type="tel" id="husband_phone" [(ngModel)]="form.husband_phone" name="husband_phone" class="form-control premium-input">
+        </div>
+
+        <div class="field-block">
+          <label for="asha_worker" class="form-label">{{ 'ashaWorker' | translate }}</label>
+          <input type="text" id="asha_worker" [(ngModel)]="form.asha_worker" name="asha_worker" class="form-control premium-input">
+        </div>
+
+        <div class="field-block">
+          <label for="anganwadi_name" class="form-label">{{ 'anganwadiName' | translate }}</label>
+          <input type="text" id="anganwadi_name" [(ngModel)]="form.anganwadi_name" name="anganwadi_name" class="form-control premium-input">
+        </div>
+
+        <div class="field-block">
+          <label for="anganwadi_phone" class="form-label">{{ 'anganwadiPhone' | translate }}</label>
+          <input type="tel" id="anganwadi_phone" [(ngModel)]="form.anganwadi_phone" name="anganwadi_phone" class="form-control premium-input">
+        </div>
+
+        <div class="field-block">
+          <label for="email" class="form-label">{{ 'email' | translate }}</label>
+          <input type="email" id="email" [(ngModel)]="form.email" name="email" class="form-control premium-input">
+        </div>
+      </div>
+
+      <button type="submit" class="journey-button">{{ 'register' | translate }}</button>
+    </form>
+  </div>
+</section>

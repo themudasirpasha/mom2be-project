@@ -1,0 +1,53 @@
+<app-card [title]="'symptomChecker' | translate">
+  <div class="symptom-container">
+    <div class="symptom-entry">
+      <div class="prompt-block">
+        <h3>How are you feeling today?</h3>
+        <p>Type your symptoms in your own words or tap one of the ready suggestions to begin quickly.</p>
+      </div>
+
+      <textarea [(ngModel)]="text" [placeholder]="'describeSymptoms' | translate" class="form-control symptom-box"></textarea>
+
+      <div class="suggestions">
+        <button type="button" class="suggestion-chip" *ngFor="let suggestion of suggestions" (click)="applySuggestion(suggestion)">
+          {{ suggestion }}
+        </button>
+      </div>
+
+      <button (click)="check()" class="btn btn-primary check-button">{{ 'analyzeSymptoms' | translate }}</button>
+    </div>
+
+    <div *ngIf="result" class="result mt-3">
+      <h3 *ngIf="result.risk" [ngClass]="getRiskClass()">
+        {{ 'riskLevel' | translate }}: {{ ('risk_' + (result.risk || '').toLowerCase()) | translate }}
+      </h3>
+
+      <div *ngIf="introLines.length" class="response-block">
+        <p *ngFor="let line of introLines" class="response-line">{{ line }}</p>
+      </div>
+
+      <div *ngIf="sections.length; else simpleResponse">
+        <div *ngFor="let section of sections" class="response-section">
+          <h4 class="section-title">{{ section.heading }}</h4>
+
+          <div *ngFor="let line of section.lines">
+            <div *ngIf="isBullet(line); else paragraphLine" class="response-bullet">
+              • {{ cleanLine(line) }}
+            </div>
+            <ng-template #paragraphLine>
+              <p class="response-line">{{ line }}</p>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+
+      <ng-template #simpleResponse>
+        <p *ngIf="!introLines.length && result.message" class="response-line">{{ result.message }}</p>
+        <p *ngIf="result.advice" class="response-line">{{ result.advice }}</p>
+        <p *ngIf="!introLines.length && !result.message && !result.advice" class="response-line">
+          {{ 'analysisComplete' | translate }}
+        </p>
+      </ng-template>
+    </div>
+  </div>
+</app-card>

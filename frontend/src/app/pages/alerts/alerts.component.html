@@ -1,0 +1,33 @@
+<section class="alerts-page">
+  <div class="alerts-hero">
+    <div>
+      <span class="hero-kicker">Alerts & Reminders</span>
+      <h1>Important Updates</h1>
+      <p>See all reminders and care updates without crowding the home dashboard.</p>
+    </div>
+    <div class="hero-avatar">🔔</div>
+  </div>
+
+  <div *ngIf="alerts.length; else emptyAlerts" class="alerts-list">
+    <article *ngFor="let alert of alerts" class="alert-card">
+      <div class="alert-head">
+        <div>
+          <h2>{{ getAlertTitle(alert) }}</h2>
+          <p>{{ getAlertSubtitle(alert) }}</p>
+        </div>
+        <span class="alert-badge">Alert</span>
+      </div>
+
+      <p *ngIf="getAlertDetails(alert)" class="alert-message">{{ getAlertDetails(alert) }}</p>
+
+      <div *ngFor="let entry of objectEntries(alert)" class="alert-row">
+        <span class="field-key">{{ formatKey(entry.key) }}</span>
+        <span class="field-value">{{ entry.value }}</span>
+      </div>
+    </article>
+  </div>
+
+  <ng-template #emptyAlerts>
+    <div class="empty-panel">No alerts are available right now.</div>
+  </ng-template>
+</section>

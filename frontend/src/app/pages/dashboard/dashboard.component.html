@@ -1,0 +1,133 @@
+<section class="dashboard-shell">
+  <div class="dashboard-hero">
+    <div class="hero-text">
+      <span class="eyebrow">Home Dashboard</span>
+      <h1>Hi {{ motherName }},</h1>
+      <p *ngIf="week; else welcomeFallback">You are in week {{ week }} of your pregnancy journey. Everything you need is organized below in one calm place.</p>
+      <ng-template #welcomeFallback>
+        <p>Your care, reminders, guidance, and support options are all ready in one calm place.</p>
+      </ng-template>
+    </div>
+
+    <div class="summary-panel">
+      <a class="summary-card profile-highlight summary-link" routerLink="/profile">
+        <div class="profile-icon">👤</div>
+        <div>
+          <span class="summary-label">Profile</span>
+          <div class="summary-value">{{ getProfileName() }}</div>
+        </div>
+      </a>
+
+      <div class="summary-card">
+        <span class="summary-label">Current Week</span>
+        <div class="summary-value">{{ week || 'Updating' }}</div>
+      </div>
+
+      <div class="summary-card">
+        <span class="summary-label">Baby Size</span>
+        <div class="summary-value">{{ babySize || 'Coming soon' }}</div>
+      </div>
+
+      <div class="summary-card">
+        <span class="summary-label">EDD</span>
+        <div class="summary-value">{{ edd || 'Coming soon' }}</div>
+      </div>
+
+      <div class="summary-card">
+        <span class="summary-label">Days Remaining</span>
+        <div class="summary-value">{{ daysRemaining || 'Updating' }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="preview-stack-layout">
+    <a class="preview-panel compact-panel" routerLink="/profile">
+      <div class="section-header">
+        <div>
+          <span class="section-kicker">Profile</span>
+          <h2>Your Details</h2>
+        </div>
+        <div class="section-icon">👤</div>
+      </div>
+
+      <div *ngIf="profile; else emptyProfile" class="preview-stack compact-preview">
+        <div *ngFor="let entry of getProfilePreview()" class="preview-item">
+          <span class="field-key">{{ formatKey(entry.key) }}</span>
+          <span class="field-value">{{ entry.value }}</span>
+        </div>
+      </div>
+
+      <ng-template #emptyProfile>
+        <div class="empty-panel">Tap to open your full profile details.</div>
+      </ng-template>
+    </a>
+
+    <a class="preview-panel compact-panel" routerLink="/alerts">
+      <div class="section-header">
+        <div>
+          <span class="section-kicker">Alerts</span>
+          <h2>Alerts & Reminders</h2>
+        </div>
+        <div class="section-icon">🔔</div>
+      </div>
+
+      <div *ngIf="alerts.length; else emptyAlerts" class="alert-preview-card">
+        <div class="alert-preview-topline">{{ alerts.length }} active update{{ alerts.length > 1 ? 's' : '' }}</div>
+        <div class="alert-bullets">
+          <div *ngFor="let line of getAlertPreviewLines()" class="alert-bullet">
+            <span class="bullet-dot"></span>
+            <span class="bullet-text">{{ line }}</span>
+          </div>
+        </div>
+      </div>
+
+      <ng-template #emptyAlerts>
+        <div class="empty-panel">Tap to view alerts and reminders.</div>
+      </ng-template>
+    </a>
+  </div>
+
+  <div class="action-grid">
+    <a class="action-card" routerLink="/symptom">
+      <span class="action-icon">🩺</span>
+      <h2>{{ 'symptoms' | translate }}</h2>
+      <p>Analyze symptoms and get guidance with pregnancy-safe next steps.</p>
+    </a>
+
+    <a class="action-card" routerLink="/chat">
+      <span class="action-icon">💬</span>
+      <h2>{{ 'chat' | translate }}</h2>
+      <p>Talk to Mom2Be anytime for quick answers, reassurance, and support.</p>
+    </a>
+
+    <a class="action-card" routerLink="/medicine">
+      <span class="action-icon">💊</span>
+      <h2>{{ 'medicine' | translate }}</h2>
+      <p>Review daily tablets, supplement reminders, and medicine notes.</p>
+    </a>
+
+    <a class="action-card" routerLink="/schemes">
+      <span class="action-icon">🏥</span>
+      <h2>{{ 'schemes' | translate }}</h2>
+      <p>See helpful government and local support schemes matched to your journey.</p>
+    </a>
+
+    <a class="action-card" routerLink="/injection">
+      <span class="action-icon">🩹</span>
+      <h2>{{ 'injection' | translate }}</h2>
+      <p>Track upcoming vaccine and injection reminders in a clean timeline.</p>
+    </a>
+
+    <a class="action-card" routerLink="/anganwadi">
+      <span class="action-icon">🤱</span>
+      <h2>{{ 'anganwadi' | translate }}</h2>
+      <p>Find your nearby support details, worker contacts, and local care updates.</p>
+    </a>
+
+    <a class="action-card" routerLink="/history">
+      <span class="action-icon">📜</span>
+      <h2>{{ 'history' | translate }}</h2>
+      <p>Read your saved assistant conversations and care history whenever needed.</p>
+    </a>
+  </div>
+</section>

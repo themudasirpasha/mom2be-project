@@ -1,0 +1,12 @@
+<app-card [title]="'history' | translate">
+  <div *ngIf="history.length; else noHistoryData" class="data-list">
+    <div *ngFor="let item of history" class="data-item">
+      <div class="history-role">{{ formatRole(item.role) }}</div>
+      <p class="data-text">{{ item.message }}</p>
+    </div>
+  </div>
+
+  <ng-template #noHistoryData>
+    <p class="data-text">No history available yet.</p>
+  </ng-template>
+</app-card>

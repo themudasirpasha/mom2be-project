@@ -1,0 +1,54 @@
+<section class="premium-page anganwadi-theme">
+  <div class="hero-panel">
+    <div class="hero-copy">
+      <span class="hero-kicker">Community Care</span>
+      <h1>{{ 'anganwadi' | translate }}</h1>
+      <p>Your nearby support network, presented in a softer and more helpful layout for quick access to names, notes, and local help.</p>
+    </div>
+    <div class="hero-badge">
+      <span class="hero-icon">🤱</span>
+      <span class="hero-pill">{{ data.length || 0 }} updates</span>
+    </div>
+  </div>
+
+  <div *ngIf="data.length; else noAnganwadiData" class="premium-grid">
+    <article *ngFor="let item of data" class="feature-card">
+      <div class="feature-header">
+        <div>
+          <div class="feature-eyebrow">Support Contact</div>
+          <h2>{{ getPrimaryText(item) }}</h2>
+          <p>{{ getSecondaryText(item) }}</p>
+        </div>
+        <span class="feature-chip">{{ getAccentText(item) }}</span>
+      </div>
+
+      <div *ngIf="isObject(item)" class="detail-panel">
+        <div *ngFor="let entry of objectEntries(item)" class="detail-row">
+          <span class="detail-key">{{ formatKey(entry.key) }}</span>
+
+          <ng-container *ngIf="isArray(entry.value); else scalarValue">
+            <div class="tag-row">
+              <span *ngFor="let nestedItem of entry.value" class="soft-tag">{{ nestedItem }}</span>
+            </div>
+          </ng-container>
+
+          <ng-template #scalarValue>
+            <span class="detail-value">{{ entry.value }}</span>
+          </ng-template>
+        </div>
+      </div>
+
+      <div *ngIf="!isObject(item)" class="message-panel">
+        {{ item }}
+      </div>
+    </article>
+  </div>
+
+  <ng-template #noAnganwadiData>
+    <article class="empty-state">
+      <div class="empty-icon">🌼</div>
+      <h2>No Anganwadi updates yet</h2>
+      <p>Local center details and support information will appear here when available.</p>
+    </article>
+  </ng-template>
+</section>
