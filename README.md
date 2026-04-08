@@ -2,9 +2,11 @@
 
 A multi-agent AI system for maternal health that coordinates 11 specialized sub-agents to manage tasks, schedules, and health information. Built with FastAPI + Vertex AI, integrating Google Calendar and Gmail via MCP, with Firebase for structured data storage. Deployed as a REST API with an Angular frontend.
 
-## Structure
-- `backend/` — FastAPI + Vertex AI + 11 AI Agents
-- `frontend/` — Angular app
+### Structure
+- **backend/** — FastAPI + Vertex AI + 11 AI Agents  
+  - [Swagger UI Docs](https://mom2be-244972601130.asia-south1.run.app/docs)
+- **frontend/** — Angular app
+
 
 ## Backend Setup
 ```bash
