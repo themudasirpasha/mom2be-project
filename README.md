@@ -7,7 +7,6 @@
 
 [![Angular](https://img.shields.io/badge/Frontend-Angular-red?style=for-the-badge&logo=angular)](https://angular.io/)
 [![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com/)
-[![Gemini](https://img.shields.io/badge/AI-Gemini%202.0%20Flash-4285F4?style=for-the-badge&logo=google)](https://deepmind.google/technologies/gemini/)
 [![Google ADK](https://img.shields.io/badge/Agents-Google%20ADK-34A853?style=for-the-badge&logo=google)](https://cloud.google.com/)
 [![Cloud Run](https://img.shields.io/badge/Deploy-Cloud%20Run-4285F4?style=for-the-badge&logo=google-cloud)](https://cloud.google.com/run)
 
