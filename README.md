@@ -7,7 +7,6 @@
 
 [![Angular](https://img.shields.io/badge/Frontend-Angular-red?style=for-the-badge&logo=angular)](https://angular.io/)
 [![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com/)
-[![Google ADK](https://img.shields.io/badge/Agents-Google%20ADK-34A853?style=for-the-badge&logo=google)](https://cloud.google.com/)
 [![Cloud Run](https://img.shields.io/badge/Deploy-Cloud%20Run-4285F4?style=for-the-badge&logo=google-cloud)](https://cloud.google.com/run)
 
 **Gen AI Academy — APAC Hackathon 2026 | Multi-Agent Productivity Assistant**
@@ -325,8 +324,6 @@ All rights reserved by the Mom2Be team.
 
 ### *"Prathi Taayi Anmola. Prathi Maguve Anmola."*
 #### *Every Mother is Precious. Every Baby is Precious.*
-
-**11 Agents · 4 Languages · ₹1,100 Rewards · Community · Memory Album · Baby Names**
 
 💜 *Apps remind you to take medicine. **Mom2Be understands you.*** 💜
 
