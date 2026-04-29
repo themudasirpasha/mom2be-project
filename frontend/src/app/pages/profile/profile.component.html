@@ -1,0 +1,40 @@
+<section class="profile-page">
+  <div class="profile-hero">
+    <div>
+      <span class="hero-kicker">Profile</span>
+      <h1>{{ getProfileName() }}</h1>
+      <p>Your pregnancy profile, support details, and important personal information in one calm place.</p>
+    </div>
+    <div class="hero-avatar">Profile</div>
+  </div>
+
+  <div *ngIf="isLoading" class="loading-container">
+    <div class="loading-header">
+      <span class="loading-title">Loading profile...</span>
+    </div>
+
+    <div class="agents-processing">
+      <div *ngFor="let agent of processingAgents" class="agent-step" [ngClass]="{'active': agent.active, 'completed': agent.completed}">
+        <div class="agent-status">
+          <span *ngIf="agent.completed" class="status-icon completed">✓</span>
+          <span *ngIf="!agent.completed && agent.active" class="status-icon active">
+            <span class="spinner"></span>
+          </span>
+          <span *ngIf="!agent.completed && !agent.active" class="status-icon pending">○</span>
+        </div>
+        <span class="agent-label">{{ agent.label }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!isLoading && profile; else emptyProfile" class="profile-grid">
+    <article *ngFor="let entry of objectEntries(profile)" class="profile-card">
+      <span class="profile-key">{{ formatKey(entry.key) }}</span>
+      <div class="profile-value">{{ entry.value }}</div>
+    </article>
+  </div>
+
+  <ng-template #emptyProfile>
+    <div *ngIf="!isLoading" class="empty-panel">Profile details will appear here after the profile API responds.</div>
+  </ng-template>
+</section>

@@ -1,0 +1,11 @@
+{
+  "/api": {
+    "target": "https://mom2be-244972601130.asia-south1.run.app",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}

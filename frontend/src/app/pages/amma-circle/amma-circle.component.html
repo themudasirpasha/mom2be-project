@@ -1,0 +1,151 @@
+<section class="premium-page amma-circle-theme">
+  <div class="hero-panel">
+    <div class="hero-copy">
+      <span class="hero-kicker">Support network</span>
+      <h1>Amma Circle</h1>
+      <p>Talk with your local circle, vote on baby names, and celebrate new arrivals in one warm community space.</p>
+
+      <div class="hero-meta">
+        <span class="hero-chip">Trimester {{ trimester }}</span>
+        <span class="hero-chip" *ngIf="taluk">{{ taluk }}</span>
+        <span class="hero-chip" *ngIf="district">{{ district }}</span>
+      </div>
+    </div>
+
+    <div class="hero-badge">
+      <span class="hero-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <circle cx="8" cy="10" r="2.4" />
+          <circle cx="16" cy="10" r="2.4" />
+          <circle cx="12" cy="7" r="2.4" />
+          <path d="M4.5 18.5c.4-2.6 2.5-4.5 5.1-4.5h4.8c2.6 0 4.7 1.9 5.1 4.5" />
+        </svg>
+      </span>
+      <span class="hero-pill">Live community</span>
+    </div>
+  </div>
+
+  <div class="tab-strip" role="tablist" aria-label="Amma Circle sections">
+    <button type="button" class="tab-button" [class.active]="activeTab === 'chat'" (click)="setTab('chat')">Circle chat</button>
+    <button type="button" class="tab-button" [class.active]="activeTab === 'names'" (click)="setTab('names')">Baby names</button>
+    <button type="button" class="tab-button" [class.active]="activeTab === 'wall'" (click)="setTab('wall')">Celebration wall</button>
+  </div>
+
+  <div *ngIf="activeTab === 'chat'" class="feature-card chat-shell">
+    <div class="panel-head">
+      <div>
+        <div class="feature-eyebrow">Chat</div>
+        <h2>Messages from your Amma Circle</h2>
+        <p>Loaded using your trimester and taluk so the conversation stays local and relevant.</p>
+      </div>
+    </div>
+
+    <div class="chat-stream" *ngIf="chatMessages.length; else emptyChat">
+      <article *ngFor="let message of chatMessages; trackBy: trackById" class="chat-bubble" [ngClass]="message.type">
+        <span class="bubble-author">{{ message.type === 'user' ? 'You' : (message.sender || 'Amma Circle') }}</span>
+        <p>{{ message.text }}</p>
+        <span *ngIf="message.time" class="bubble-time">{{ message.time }}</span>
+      </article>
+    </div>
+
+    <ng-template #emptyChat>
+      <div class="empty-state">No messages yet. Start the circle with a quick hello.</div>
+    </ng-template>
+
+    <div class="composer">
+      <input
+        type="text"
+        [(ngModel)]="chatInput"
+        class="composer-input"
+        placeholder="Ask your Amma Circle something..."
+        [disabled]="chatSending"
+        (keyup.enter)="sendChatMessage()">
+      <button type="button" class="action-button" (click)="sendChatMessage()" [disabled]="chatSending || !chatInput.trim()">
+        {{ chatSending ? 'Sending...' : 'Send' }}
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="activeTab === 'names'" class="feature-card names-shell">
+    <div class="panel-head">
+      <div>
+        <div class="feature-eyebrow">Leaderboard</div>
+        <h2>Baby name favourites</h2>
+        <p>See the top names, add your own idea, and vote for the sweetest pick.</p>
+      </div>
+    </div>
+
+    <div class="composer inline-composer">
+      <input
+        type="text"
+        [(ngModel)]="nameInput"
+        class="composer-input"
+        placeholder="Suggest a baby name"
+        [disabled]="namePosting"
+        (keyup.enter)="submitName()">
+      <button type="button" class="action-button" (click)="submitName()" [disabled]="namePosting || !nameInput.trim()">
+        {{ namePosting ? 'Posting...' : 'Post name' }}
+      </button>
+    </div>
+
+    <div *ngIf="nameToastMessage" class="name-toast" [ngClass]="'status-' + nameToastStatus">
+      {{ nameToastMessage }}
+    </div>
+
+    <div *ngIf="voteToastMessage" class="vote-toast" [ngClass]="'status-' + voteToastStatus">
+      {{ voteToastMessage }}
+    </div>
+
+    <div *ngIf="topNames.length; else emptyNames" class="name-list">
+      <article *ngFor="let entry of topNames; let i = index; trackBy: trackById" class="name-card">
+        <div class="name-rank">{{ i + 1 }}</div>
+        <div class="name-body">
+          <strong>{{ getNameTitle(entry) }}</strong>
+          <span>By {{ getNameAuthor(entry) }}</span>
+        </div>
+        <div class="name-actions">
+          <span class="vote-count">{{ getNameVotes(entry) }} vote{{ getNameVotes(entry) === 1 ? '' : 's' }}</span>
+          <button type="button" class="vote-button" (click)="voteForName(entry)" [disabled]="votingNameId === (entry?.id ?? entry?.name_id ?? entry?.name ?? entry?.title)">
+            {{ votingNameId === (entry?.id ?? entry?.name_id ?? entry?.name ?? entry?.title) ? 'Voting...' : 'Vote' }}
+          </button>
+        </div>
+      </article>
+    </div>
+
+    <ng-template #emptyNames>
+      <div class="empty-state">No names on the leaderboard yet. Add the first one.</div>
+    </ng-template>
+  </div>
+
+  <div *ngIf="activeTab === 'wall'" class="feature-card wall-shell">
+    <div class="panel-head">
+      <div>
+        <div class="feature-eyebrow">Celebration</div>
+        <h2>Birth announcement wall</h2>
+        <p>Share joyful baby-arrival updates and keep the community cheering together.</p>
+      </div>
+    </div>
+
+    <div class="wall-form">
+      <input type="text" [(ngModel)]="birthForm.baby_name" class="composer-input" placeholder="Baby name">
+      <input type="text" [(ngModel)]="birthForm.location" class="composer-input" placeholder="Taluk, district">
+      <textarea [(ngModel)]="birthForm.message" class="composer-input composer-area" placeholder="Write the birth announcement"></textarea>
+      <button type="button" class="action-button wide-button" (click)="submitBirthAnnouncement()" [disabled]="wallPosting || !birthForm.baby_name.trim() || !birthForm.message.trim()">
+        {{ wallPosting ? 'Posting...' : 'Post announcement' }}
+      </button>
+    </div>
+
+    <div *ngIf="wallPosts.length; else emptyWall" class="wall-list">
+      <article *ngFor="let post of wallPosts; trackBy: trackById" class="wall-card">
+        <div class="wall-badge">New arrival</div>
+        <strong>{{ getWallTitle(post) }}</strong>
+        <p>{{ getWallMessage(post) }}</p>
+        <span *ngIf="getWallMeta(post)" class="wall-meta">{{ getWallMeta(post) }}</span>
+      </article>
+    </div>
+
+    <ng-template #emptyWall>
+      <div class="empty-state">No celebration posts yet. Be the first to share good news.</div>
+    </ng-template>
+  </div>
+</section>

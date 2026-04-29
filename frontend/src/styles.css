@@ -1,0 +1,109 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+:root {
+  --page-bg: #fff7fb;
+  --page-bg-alt: #fffdf6;
+  --surface: rgba(255, 255, 255, 0.9);
+  --surface-strong: #ffffff;
+  --ink-strong: #452d53;
+  --ink-soft: #7a617f;
+  --brand-violet: #8a63ff;
+  --brand-violet-deep: #6b49df;
+  --brand-pink: #ff91bd;
+  --brand-peach: #ffbf8b;
+  --brand-mint: #6fd6ba;
+  --risk-high: #e34b55;
+  --risk-high-bg: #fff1f2;
+  --risk-medium: #c89200;
+  --risk-medium-bg: #fff9de;
+  --risk-low: #279a69;
+  --risk-low-bg: #edfdf5;
+  --line-soft: rgba(147, 102, 191, 0.14);
+  --shadow-soft: 0 24px 60px rgba(180, 127, 174, 0.14);
+  --shadow-card: 0 18px 42px rgba(172, 120, 179, 0.14);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  color: var(--ink-strong);
+  background:
+    radial-gradient(circle at top left, rgba(171, 132, 255, 0.22), transparent 28%),
+    radial-gradient(circle at top right, rgba(255, 174, 196, 0.22), transparent 24%),
+    linear-gradient(180deg, var(--page-bg), var(--page-bg-alt));
+}
+
+body.lang-english {
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+}
+
+body.lang-kannada {
+  font-family: 'Noto Sans Kannada', 'Tunga', 'Kedage', sans-serif;
+}
+
+body.lang-hindi {
+  font-family: 'Nirmala UI', 'Mangal', 'Noto Sans Devanagari', sans-serif;
+}
+
+body.lang-urdu {
+  font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', 'Segoe UI', serif;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a,
+button,
+.form-control {
+  transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease, background-color 0.24s ease;
+}
+
+button {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+.container-fluid.py-4 {
+  max-width: 1280px;
+  padding-top: 24px !important;
+  padding-bottom: 40px !important;
+  padding-inline: clamp(16px, 3vw, 34px);
+}
+
+.form-control {
+  border-radius: 18px;
+}
+
+.form-control:focus {
+  border-color: rgba(138, 99, 255, 0.32);
+  box-shadow: 0 0 0 0.22rem rgba(138, 99, 255, 0.12);
+}
+
+mat-card {
+  border-radius: 18px;
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-card);
+}
+
+::selection {
+  background: rgba(138, 99, 255, 0.22);
+}

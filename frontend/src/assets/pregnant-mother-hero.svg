@@ -1,0 +1,79 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#B18BFF;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#F6B0D2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFE5C3;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#bgGradient)"/>
+
+  <!-- Hair -->
+  <ellipse cx="200" cy="85" rx="65" ry="70" fill="#2C1810"/>
+  <path d="M135 95C135 95 120 70 180 50C220 35 260 40 270 80" fill="#3D2817"/>
+  
+  <!-- Hair strand accent -->
+  <path d="M150 110C155 90 170 75 190 70" stroke="#8B5A3C" stroke-width="2"/>
+
+  <!-- Face -->
+  <ellipse cx="200" cy="120" rx="50" ry="55" fill="#F4C5A0"/>
+  
+  <!-- Ears -->
+  <ellipse cx="150" cy="115" rx="15" ry="20" fill="#E8B895"/>
+  <ellipse cx="250" cy="115" rx="15" ry="20" fill="#E8B895"/>
+  
+  <!-- Bindi -->
+  <circle cx="200" cy="95" r="6" fill="#C41E3A"/>
+  
+  <!-- Eyes -->
+  <ellipse cx="180" cy="115" rx="8" ry="12" fill="#1A1A1A"/>
+  <circle cx="178" cy="113" r="3" fill="white" opacity="0.6"/>
+  
+  <ellipse cx="220" cy="115" rx="8" ry="12" fill="#1A1A1A"/>
+  <circle cx="222" cy="113" r="3" fill="white" opacity="0.6"/>
+  
+  <!-- Eyebrows -->
+  <path d="M170 100 Q175 98 188 100" stroke="#1A1A1A" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M212 100 Q225 98 230 100" stroke="#1A1A1A" stroke-width="2" fill="none" stroke-linecap="round"/>
+  
+  <!-- Nose -->
+  <path d="M200 115 L200 135" stroke="#D49870" stroke-width="2" fill="none"/>
+  <circle cx="197" cy="140" r="3" fill="#D49870"/>
+  <circle cx="203" cy="140" r="3" fill="#D49870"/>
+  
+  <!-- Smile -->
+  <path d="M185 155 Q200 165 215 155" stroke="#B85C75" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  
+  <!-- Neck -->
+  <rect x="190" y="165" width="20" height="20" fill="#F4C5A0"/>
+  
+  <!-- Sari - Purple/Magenta -->
+  <path d="M140 180 Q140 185 120 220 L120 280 L280 280 L280 220 Q260 185 260 180" fill="#D946A6"/>
+  <path d="M145 180 Q145 185 130 230 L130 280 L270 280 L270 230 Q255 185 255 180" fill="#E879B9"/>
+  
+  <!-- Sari Gold Border -->
+  <path d="M120 220 L280 220" stroke="#D4AF37" stroke-width="3"/>
+  <path d="M120 260 L280 260" stroke="#D4AF37" stroke-width="2" opacity="0.7"/>
+  
+  <!-- Blouse - Blue/Purple -->
+  <path d="M160 175 L170 180 L230 180 L240 175 Q240 190 230 210 L170 210 Q160 190 160 175" fill="#7C3AED"/>
+  <ellipse cx="200" cy="195" rx="25" ry="12" fill="#8854E7" opacity="0.8"/>
+  
+  <!-- Hands -->
+  <ellipse cx="140" cy="200" rx="12" ry="18" fill="#F4C5A0" transform="rotate(-25 140 200)"/>
+  <ellipse cx="260" cy="200" rx="12" ry="18" fill="#F4C5A0" transform="rotate(25 260 200)"/>
+  
+  <!-- Belly Bump -->
+  <ellipse cx="200" cy="215" rx="35" ry="40" fill="#F2D4E8"/>
+  <ellipse cx="200" cy="210" rx="32" ry="35" fill="#FFE0F0"/>
+  
+  <!-- Bangles on left arm -->
+  <circle cx="135" cy="195" r="5" fill="none" stroke="#FFD700" stroke-width="2"/>
+  <circle cx="135" cy="210" r="5" fill="none" stroke="#FFD700" stroke-width="2"/>
+  
+  <!-- Bangles on right arm -->
+  <circle cx="265" cy="195" r="5" fill="none" stroke="#FFD700" stroke-width="2"/>
+  <circle cx="265" cy="210" r="5" fill="none" stroke="#FFD700" stroke-width="2"/>
+</svg>

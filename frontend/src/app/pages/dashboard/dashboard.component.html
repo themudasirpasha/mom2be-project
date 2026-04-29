@@ -1,0 +1,263 @@
+<section class="dashboard-shell">
+  <div class="dash-grid">
+    <div class="dash-left">
+      <div class="greeting-card">
+        <div class="greeting-illustration-container">
+          <img src="assets/5d3d494a-8e2c-4054-a3d2-01491ed16697.jpeg" class="greeting-illustration" alt="Pregnancy dashboard illustration" aria-hidden="true">
+        </div>
+
+        <div class="greeting-top">
+          <div class="greeting-copy">
+            <span class="greeting-kicker">{{ getGreeting() }}</span>
+            <h1>{{ motherName }}</h1>
+            <p *ngIf="getWeekNumber() as wk; else welcomeFallback">You&apos;re {{ wk }} weeks pregnant.</p>
+            <ng-template #welcomeFallback>
+              <p>Your home dashboard is ready with reminders and support.</p>
+            </ng-template>
+          </div>
+        </div>
+        <div *ngIf="joyCountdownMessage" class="countdown-banner">
+          {{ joyCountdownMessage }}
+        </div>
+
+        <div class="glance-card">
+          <div class="glance-head">
+            <strong>Today at a glance</strong>
+            <span class="glance-sub">{{ getDaysToGoLabel() }}</span>
+          </div>
+
+          <div class="glance-metrics">
+            <div class="metric">
+              <span class="metric-label">Week</span>
+              <span class="metric-value">{{ getWeekNumber() || '—' }}</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Trimester</span>
+              <span class="metric-value">{{ getTrimesterLabel() }}</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Baby size</span>
+              <span class="metric-value">{{ getBabySizeShort() }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="quick-actions">
+          <span class="section-title">Quick actions</span>
+          <div class="quick-row">
+            <a class="quick-tile" routerLink="/symptom">
+              <span class="quick-icon icon-symptoms" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="9" fill="#fff2f2"/>
+                  <path d="M12 6.5c-1.9 0-3.5 1.58-3.5 3.52 0 2.52 3.5 6.98 3.5 6.98s3.5-4.46 3.5-6.98A3.5 3.5 0 0 0 12 6.5Z" fill="#ef6b6b"/>
+                  <circle cx="12" cy="10" r="1.2" fill="#fff"/>
+                </svg>
+              </span>
+              <span class="quick-label">Check symptoms</span>
+            </a>
+
+            <a class="quick-tile" routerLink="/asha-brief">
+              <span class="quick-icon icon-chat" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <rect x="5" y="4.5" width="11.5" height="15" rx="2.4" fill="#fff8ea"/>
+                  <path d="M8.2 8.2h5.2M8.2 11.3h5.2M8.2 14.4h3.5" fill="none" stroke="#c77c2d" stroke-width="1.6" stroke-linecap="round"/>
+                  <path d="m16 8.4 1.4 1.4 2.6-2.8" fill="none" stroke="#ef6b6b" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="18.2" cy="15.9" r="2.2" fill="#ffd3de"/>
+                </svg>
+              </span>
+              <span class="quick-label">ASHA Brief</span>
+            </a>
+
+            <a class="quick-tile" routerLink="/medicine">
+              <span class="quick-icon icon-medicine" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M8 7.5a3.5 3.5 0 0 1 7 0v2.1A4.4 4.4 0 0 1 13.6 13L12 14.6 10.4 13A4.4 4.4 0 0 1 8 9.6Z" fill="#ff8fa3"/>
+                  <path d="M9.2 14.5h5.6a2.9 2.9 0 1 1 0 5.8H9.2a2.9 2.9 0 1 1 0-5.8Z" fill="#ffe6ea"/>
+                  <path d="M12 6v3.4M10.3 7.7h3.4" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <span class="quick-label">Medicine</span>
+            </a>
+
+            <a class="quick-tile" routerLink="/injection">
+              <span class="quick-icon icon-injection" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="m15.6 4.4 4 4-2 2-1.2-1.2-3.8 3.8 1.2 1.2-1.7 1.7-1.2-1.2-2.8 2.8" fill="none" stroke="#d27b84" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="m8.8 16.3-1.6 1.6-1.8-.2.2-1.8 1.6-1.6Z" fill="#f4b6bc"/>
+                  <path d="M17.8 6.2 14 10" fill="none" stroke="#ff8c5a" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <span class="quick-label">Injection</span>
+            </a>
+
+            <a class="quick-tile" routerLink="/schemes">
+              <span class="quick-icon icon-schemes" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M4 10.5 12 4l8 6.5V19a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 19Z" fill="#ffe9cf"/>
+                  <path d="M9.2 20.5v-5h5.6v5" fill="#ffd2a6"/>
+                  <path d="M6.7 11.5h10.6" fill="none" stroke="#d18b48" stroke-width="1.7" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <span class="quick-label">Schemes</span>
+            </a>
+
+            <a class="quick-tile" routerLink="/anganwadi">
+              <span class="quick-icon icon-anganwadi" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="8.2" cy="10" r="2.4" fill="#ffb57a"/>
+                  <circle cx="15.8" cy="10" r="2.4" fill="#ff9cab"/>
+                  <path d="M5 17.2a4.6 4.6 0 0 1 3.8-2h6.4a4.6 4.6 0 0 1 3.8 2" fill="none" stroke="#d77983" stroke-width="1.8" stroke-linecap="round"/>
+                  <path d="M12 7.1c.9 0 1.6.7 1.6 1.6S12.9 10.3 12 10.3s-1.6-.7-1.6-1.6S11.1 7.1 12 7.1Z" fill="#ffe3a3"/>
+                </svg>
+              </span>
+              <span class="quick-label">Anganwadi</span>
+            </a>
+
+            <a class="quick-tile" routerLink="/lab-report">
+              <span class="quick-icon icon-labreport" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M7 4.5h8l3 3v11a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 6 18.5V6A1.5 1.5 0 0 1 7.5 4.5Z" fill="#fff3f5"/>
+                  <path d="M15 4.5v3h3" fill="#ffd2d9"/>
+                  <path d="M9 11h6M9 14h6M9 17h4" fill="none" stroke="#d85d76" stroke-width="1.7" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <span class="quick-label">Lab reports</span>
+            </a>
+
+            <a class="quick-tile" routerLink="/amma-circle">
+              <span class="quick-icon icon-amma-circle" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 19.6s-6.2-3.6-6.2-8.1a3.6 3.6 0 0 1 6.2-2.3 3.6 3.6 0 0 1 6.2 2.3c0 4.5-6.2 8.1-6.2 8.1Z" fill="#ff9ab3"/>
+                  <circle cx="9" cy="10.3" r="1.1" fill="#fff"/>
+                  <circle cx="15" cy="10.3" r="1.1" fill="#fff"/>
+                </svg>
+              </span>
+              <span class="quick-label">Amma Circle</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="ai-card">
+        <div class="ai-head">
+          <div>
+            <span class="section-title">Talk to Amma</span>
+            <h2>Ask Amma about symptoms, food, or anything on your mind.</h2>
+          </div>
+          <span class="ai-badge">Amma</span>
+        </div>
+        <div class="ai-content">
+          <div class="ai-text">
+            <a class="ai-cta" routerLink="/chat">
+              <span class="ai-cta-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 3a4 4 0 0 1 4 4v5a4 4 0 0 1-8 0V7a4 4 0 0 1 4-4Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                  <path d="M6 12a6 6 0 0 0 12 0M12 18v3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <span>Chat with Amma</span>
+            </a>
+          </div>
+          <div class="ai-illustration">
+            <img src="assets/talk-to-amma-chatbot-cartoon.svg" alt="AI chatbot cartoon illustration" aria-hidden="true">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dash-right">
+      <div class="tip-card">
+        <img src="assets/tip-doctor-cartoon.svg" class="tip-mascot" alt="" aria-hidden="true">
+        <div class="tip-head">
+          <span class="tip-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 3a7 7 0 0 0-4 12.7V19a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-3.3A7 7 0 0 0 12 3Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              <path d="M10 19h4M9 15h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <div>
+            <span class="section-title">Tip of the day</span>
+            <p>Eat iron-rich foods and drink water through the day.</p>
+          </div>
+        </div>
+      </div>
+
+      <a class="whatsapp-banner" href="https://wa.me/" target="_blank" rel="noopener noreferrer" aria-label="Open WhatsApp support">
+        <div class="whatsapp-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32">
+            <path d="M16 3C8.82 3 3 8.65 3 15.63c0 2.47.74 4.78 2 6.73L3 29l6.9-1.8A13.2 13.2 0 0 0 16 28.25c7.18 0 13-5.65 13-12.62S23.18 3 16 3Z" fill="currentColor" opacity="0.14"/>
+            <path d="M9.3 24.1l.98-3.57a8.65 8.65 0 1 1 3.43 2.18l-4.41 1.39Zm4.86-14.2c-.3-.67-.63-.68-.92-.69h-.78c-.28 0-.73.1-1.12.52-.39.42-1.48 1.45-1.48 3.54s1.51 4.11 1.72 4.39c.21.28 2.96 4.69 7.31 6.38 3.61 1.4 4.35 1.12 5.13 1.05.78-.07 2.52-1.03 2.88-2.03.36-.99.36-1.84.25-2.02-.1-.17-.39-.28-.81-.49-.42-.21-2.52-1.26-2.91-1.4-.39-.14-.67-.21-.96.21-.28.42-1.1 1.4-1.35 1.68-.25.28-.49.31-.91.1-.42-.21-1.77-.66-3.37-2.11-1.24-1.12-2.08-2.51-2.32-2.93-.25-.42-.03-.64.18-.85.19-.19.42-.49.63-.73.21-.24.28-.42.42-.7.14-.28.07-.52-.03-.73-.11-.21-.95-2.37-1.34-3.21Z" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="whatsapp-copy">
+          <span class="whatsapp-kicker">24 x 7 support</span>
+          <strong>WhatsApp help and daily feeds are always one tap away.</strong>
+          <span>Message Amma anytime for quick support, nudges, and follow-ups.</span>
+        </div>
+        <span class="whatsapp-ping" aria-hidden="true"></span>
+      </a>
+
+      <div class="joy-card">
+        <div class="joy-content">
+          <p *ngIf="joyLoading" class="joy-loading">Gathering your daily glow…</p>
+
+          <ng-container *ngIf="!joyLoading">
+            <div class="joy-section" *ngIf="joyDailyMessage">
+              <strong>Daily message</strong>
+              <p>{{ joyDailyMessage }}</p>
+            </div>
+
+            <div class="joy-section" *ngIf="joyJoke">
+              <strong>Today's laugh</strong>
+              <p>{{ joyJoke }}</p>
+            </div>
+
+            <div class="joy-section" *ngIf="joyAssignment">
+              <strong>Today's assignment</strong>
+              <p>{{ joyAssignment }}</p>
+            </div>
+
+            <div *ngIf="!joyDailyMessage && !joyJoke && !joyAssignment">
+              <p>Joy is on its way. Check in later for a happy prompt.</p>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="alerts-card">
+        <div class="alerts-head">
+          <div>
+            <span class="section-title section-title-alerts">
+              <span class="section-title-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 4a4 4 0 0 0-4 4v2.2c0 .9-.27 1.78-.78 2.52L5.7 15.1A1.5 1.5 0 0 0 7 17.5h10a1.5 1.5 0 0 0 1.3-2.4l-1.52-2.38A4.4 4.4 0 0 1 16 10.2V8a4 4 0 0 0-4-4Z" fill="currentColor"/>
+                  <path d="M10.4 18.2a1.8 1.8 0 0 0 3.2 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <span>Alerts & reminders</span>
+            </span>
+            <h2 *ngIf="alerts.length; else noAlertsTitle">{{ alerts.length }} update{{ alerts.length > 1 ? 's' : '' }}</h2>
+            <ng-template #noAlertsTitle>
+              <h2>No alerts right now</h2>
+            </ng-template>
+          </div>
+          <a class="alerts-link" routerLink="/alerts">View all</a>
+        </div>
+
+        <div *ngIf="alerts.length; else emptyAlerts" class="alerts-list">
+          <article *ngFor="let alert of getAlertPreviewItems()" class="alert-item" [ngClass]="'severity-' + getAlertSeverity(alert)">
+            <span class="alert-pill" [ngClass]="'severity-' + getAlertSeverity(alert)">{{ getAlertSeverityLabel(alert) }}</span>
+            <div class="alert-body">
+              <strong>{{ getAlertTitle(alert) }}</strong>
+              <span>{{ getAlertSubtitle(alert) }}</span>
+            </div>
+          </article>
+        </div>
+
+        <ng-template #emptyAlerts>
+          <div class="empty-panel">You&apos;re all set today. Check again later for reminders.</div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</section>

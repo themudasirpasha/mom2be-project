@@ -1,0 +1,14 @@
+.card {
+  padding: 22px;
+  margin-bottom: 18px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(138, 99, 255, 0.12);
+  box-shadow: var(--shadow-soft);
+}
+
+.card h2 {
+  margin: 0 0 18px;
+  color: var(--ink-strong);
+  font-size: 1.7rem;
+}

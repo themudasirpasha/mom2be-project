@@ -1,0 +1,45 @@
+<svg width="520" height="360" viewBox="0 0 520 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="54" y1="42" x2="430" y2="312" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF5F7"/>
+      <stop offset="1" stop-color="#FFE5D8"/>
+    </linearGradient>
+    <linearGradient id="coat" x1="214" y1="155" x2="291" y2="298" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F6F0FF"/>
+    </linearGradient>
+    <linearGradient id="dress" x1="193" y1="176" x2="324" y2="304" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#B699FF"/>
+      <stop offset="1" stop-color="#F39CB7"/>
+    </linearGradient>
+  </defs>
+  <rect x="28" y="28" width="464" height="304" rx="40" fill="url(#bg)"/>
+  <circle cx="104" cy="95" r="16" fill="#FFD86E" fill-opacity="0.55"/>
+  <circle cx="416" cy="90" r="22" fill="#FFC7D6" fill-opacity="0.55"/>
+  <circle cx="392" cy="270" r="15" fill="#FFDCC7" fill-opacity="0.7"/>
+  <rect x="66" y="62" width="118" height="72" rx="24" fill="#FFFFFF" fill-opacity="0.92"/>
+  <text x="91" y="94" fill="#7A4F68" font-family="Arial, sans-serif" font-size="24" font-weight="700">Tip</text>
+  <text x="91" y="121" fill="#A06D84" font-family="Arial, sans-serif" font-size="18">🍎 Drink water</text>
+  <path d="M141 134L130 152L121 134H141Z" fill="#FFFFFF" fill-opacity="0.92"/>
+  <circle cx="255" cy="154" r="60" fill="#F6BC95"/>
+  <path d="M202 157C202 119.997 225.326 91 255 91C284.674 91 308 119.997 308 157V166H202V157Z" fill="#3B2A4A"/>
+  <path d="M220 161C220 135.595 235.894 115 255.5 115C275.106 115 291 135.595 291 161V176H220V161Z" fill="#523761"/>
+  <ellipse cx="232" cy="157" rx="6" ry="7" fill="#3E2A31"/>
+  <ellipse cx="279" cy="157" rx="6" ry="7" fill="#3E2A31"/>
+  <path d="M239 186C249 194 262 194 272 186" stroke="#B56C78" stroke-width="5" stroke-linecap="round"/>
+  <path d="M198 222C198 190.52 223.52 165 255 165C286.48 165 312 190.52 312 222V302H198V222Z" fill="url(#dress)"/>
+  <path d="M188 215C188 193.46 205.46 176 227 176H283C304.54 176 322 193.46 322 215V306H188V215Z" fill="url(#coat)"/>
+  <path d="M242 188H268L262 209H248L242 188Z" fill="#FFD4DF"/>
+  <path d="M244 196H266" stroke="#C27189" stroke-width="4" stroke-linecap="round"/>
+  <path d="M255 190V216" stroke="#C27189" stroke-width="4" stroke-linecap="round"/>
+  <rect x="176" y="229" width="34" height="78" rx="17" fill="#F6BC95"/>
+  <rect x="300" y="229" width="34" height="78" rx="17" fill="#F6BC95"/>
+  <rect x="146" y="246" width="44" height="22" rx="11" transform="rotate(-18 146 246)" fill="#FFF2F6"/>
+  <path d="M160 230L137 238" stroke="#D591A2" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="357" cy="186" r="33" fill="#FFFFFF" fill-opacity="0.95"/>
+  <text x="339" y="197" fill="#F08BA7" font-family="Arial, sans-serif" font-size="28">💡</text>
+  <circle cx="405" cy="187" r="26" fill="#FFFFFF" fill-opacity="0.95"/>
+  <text x="392" y="196" fill="#F6B24B" font-family="Arial, sans-serif" font-size="24">😊</text>
+  <rect x="197" y="296" width="52" height="14" rx="7" fill="#E0D7F8"/>
+  <rect x="261" y="296" width="52" height="14" rx="7" fill="#E0D7F8"/>
+</svg>

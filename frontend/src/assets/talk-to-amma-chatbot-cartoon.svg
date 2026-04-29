@@ -1,0 +1,44 @@
+<svg width="520" height="360" viewBox="0 0 520 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="chatbg" x1="70" y1="52" x2="438" y2="310" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F9F0FF"/>
+      <stop offset="1" stop-color="#FFE9ED"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="316" y1="98" x2="431" y2="257" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#CBA8FF"/>
+      <stop offset="1" stop-color="#F39ABB"/>
+    </linearGradient>
+    <linearGradient id="hood" x1="150" y1="134" x2="282" y2="284" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9A77F4"/>
+      <stop offset="1" stop-color="#E48BB0"/>
+    </linearGradient>
+  </defs>
+  <rect x="28" y="28" width="464" height="304" rx="40" fill="url(#chatbg)"/>
+  <circle cx="111" cy="93" r="17" fill="#FFD5E0" fill-opacity="0.6"/>
+  <circle cx="405" cy="94" r="22" fill="#EAD7FF" fill-opacity="0.7"/>
+  <rect x="300" y="78" width="132" height="178" rx="30" fill="#2D1F42"/>
+  <rect x="311" y="92" width="110" height="150" rx="24" fill="url(#screen)"/>
+  <rect x="325" y="110" width="50" height="14" rx="7" fill="#FFFFFF" fill-opacity="0.68"/>
+  <rect x="325" y="135" width="82" height="18" rx="9" fill="#FFFFFF" fill-opacity="0.9"/>
+  <rect x="325" y="164" width="63" height="18" rx="9" fill="#FFEFF5"/>
+  <rect x="325" y="194" width="74" height="18" rx="9" fill="#FFFFFF" fill-opacity="0.9"/>
+  <circle cx="369" cy="222" r="22" fill="#FFFFFF" fill-opacity="0.92"/>
+  <text x="355" y="231" fill="#9B6CE0" font-family="Arial, sans-serif" font-size="22">🤖</text>
+  <circle cx="188" cy="144" r="58" fill="#F3B48E"/>
+  <path d="M136 148C136 109.892 160.848 81 190.5 81C220.152 81 245 109.892 245 148V160H136V148Z" fill="#3A294C"/>
+  <path d="M148 144C148 119.147 166.58 100 189.5 100C212.42 100 231 119.147 231 144V170H148V144Z" fill="#4B3564"/>
+  <ellipse cx="169" cy="149" rx="6" ry="7" fill="#35262C"/>
+  <ellipse cx="212" cy="149" rx="6" ry="7" fill="#35262C"/>
+  <path d="M176 177C185 185 197 185 206 177" stroke="#B76478" stroke-width="5" stroke-linecap="round"/>
+  <path d="M123 219C123 185.863 149.863 159 183 159H194C227.137 159 254 185.863 254 219V304H123V219Z" fill="url(#hood)"/>
+  <rect x="104" y="226" width="34" height="72" rx="17" fill="#F3B48E"/>
+  <rect x="239" y="226" width="34" height="72" rx="17" fill="#F3B48E"/>
+  <path d="M142 201C154 214 168 220 188 220C208 220 223 214 235 201" stroke="#F9D7E6" stroke-width="10" stroke-linecap="round"/>
+  <rect x="76" y="78" width="126" height="52" rx="22" fill="#FFFFFF" fill-opacity="0.92"/>
+  <text x="95" y="110" fill="#7E5A95" font-family="Arial, sans-serif" font-size="20" font-weight="700">Hello Amma</text>
+  <path d="M116 130L104 145L99 129L116 130Z" fill="#FFFFFF" fill-opacity="0.92"/>
+  <rect x="244" y="80" width="90" height="46" rx="20" fill="#FFFFFF" fill-opacity="0.92"/>
+  <text x="266" y="109" fill="#F08AA8" font-family="Arial, sans-serif" font-size="23">💬</text>
+  <rect x="263" y="270" width="52" height="36" rx="16" fill="#FFFFFF" fill-opacity="0.95"/>
+  <text x="276" y="294" fill="#F1A94B" font-family="Arial, sans-serif" font-size="20">✨</text>
+</svg>

@@ -1,0 +1,93 @@
+<section class="premium-page lab-report-theme">
+  <div class="hero-panel">
+    <div class="hero-illustration" aria-hidden="true">
+      <img src="assets/pregnant-woman-background-maternity-vector-illustration_543785-13.avif" class="hero-mascot" alt="Pregnant woman maternity illustration">
+    </div>
+    <div class="hero-copy">
+      <span class="hero-kicker">Health records</span>
+      <h1>Lab reports</h1>
+      <p>Upload your latest blood tests, ultrasound scans, or lab documents and keep them ready for your care team.</p>
+    </div>
+  </div>
+
+  <div class="premium-grid lab-report-grid">
+    <article class="feature-card upload-card">
+      <div class="feature-header">
+        <div>
+          <div class="feature-eyebrow">Upload report</div>
+          <h2>Submit a new lab report</h2>
+          <p>Select a PDF or image file and upload it securely for your session.</p>
+        </div>
+      </div>
+
+      <div class="upload-body">
+        <label class="file-input-label">
+          <input type="file" accept=".pdf,image/*" (change)="onFileChange($event)" />
+          <span>{{ selectedFile ? selectedFile.name : 'Choose PDF or image' }}</span>
+        </label>
+
+        <button type="button" class="primary-button" [disabled]="uploading || !selectedFile" (click)="uploadReport()">
+          {{ uploading ? 'Uploading...' : 'Upload report' }}
+        </button>
+
+        <div *ngIf="uploadError" class="form-error">{{ uploadError }}</div>
+        <div *ngIf="uploadSuccess" class="form-success">{{ uploadSuccess }}</div>
+      </div>
+
+      <div *ngIf="uploading" class="loading-container">
+        <div class="loading-header">
+          <span class="loading-title">Processing lab report...</span>
+        </div>
+
+        <div class="agents-processing">
+          <div *ngFor="let agent of processingAgents" class="agent-step" [ngClass]="{'active': agent.active, 'completed': agent.completed}">
+            <div class="agent-status">
+              <span *ngIf="agent.completed" class="status-icon completed">✓</span>
+              <span *ngIf="!agent.completed && agent.active" class="status-icon active">
+                <span class="spinner"></span>
+              </span>
+              <span *ngIf="!agent.completed && !agent.active" class="status-icon pending">○</span>
+            </div>
+            <span class="agent-label">{{ agent.label }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="latestSuggestion" class="suggestion-panel">
+        <div class="feature-eyebrow">AI suggestion</div>
+        <h3>Lab report guidance</h3>
+        <p>{{ latestSuggestion }}</p>
+      </div>
+    </article>
+
+    <article class="feature-card reports-card">
+      <div class="feature-header">
+        <div>
+          <div class="feature-eyebrow">Recent reports</div>
+          <h2>Latest laboratory files</h2>
+        </div>
+      </div>
+
+      <div *ngIf="isLoading" class="loading-panel">
+        <p>Loading lab reports...</p>
+      </div>
+
+      <div *ngIf="!isLoading && data.length; else noLabReports" class="report-list">
+        <article *ngFor="let report of data" class="report-item">
+          <div>
+            <strong>{{ getReportTitle(report) }}</strong>
+            <span>{{ getReportSubtitle(report) }}</span>
+          </div>
+          <a [href]="getReportUrl(report)" target="_blank" rel="noreferrer" class="report-link">View</a>
+        </article>
+      </div>
+
+      <ng-template #noLabReports>
+        <div class="empty-panel">
+          <h2>No lab reports yet</h2>
+          <p>Upload a document to keep your reports ready for review.</p>
+        </div>
+      </ng-template>
+    </article>
+  </div>
+</section>

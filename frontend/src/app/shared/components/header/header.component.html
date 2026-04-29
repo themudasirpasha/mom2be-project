@@ -1,0 +1,47 @@
+<header class="app-header">
+  <div class="header-shell">
+    <div class="header-brand">
+      <div class="brand-mark">M</div>
+      <div class="brand-copy">
+        <h1>{{ 'appName' | translate }}</h1>
+        <p>{{ 'appSubtitle' | translate }}</p>
+      </div>
+    </div>
+
+    <div *ngIf="showUserActions" class="header-actions">
+      <div class="header-nav-actions">
+        <a class="header-home-link" routerLink="/dashboard" aria-label="Go to home dashboard">
+          <span class="header-action-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 10.5 12 4l8 6.5V19a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 19Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              <path d="M9.5 20.5V14h5v6.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="header-action-label">Home</span>
+        </a>
+
+        <a class="header-alert-link" routerLink="/alerts" aria-label="Open alerts and reminders">
+          <span class="header-action-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 4a4 4 0 0 0-4 4v2.2c0 .9-.27 1.78-.78 2.52L5.7 15.1A1.5 1.5 0 0 0 7 17.5h10a1.5 1.5 0 0 0 1.3-2.4l-1.52-2.38A4.4 4.4 0 0 1 16 10.2V8a4 4 0 0 0-4-4Z" fill="currentColor"/>
+              <path d="M10.4 18.2a1.8 1.8 0 0 0 3.2 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </span>
+        </a>
+      </div>
+
+      <a class="header-profile-link" routerLink="/profile" aria-label="Open profile">
+        <span class="header-profile-avatar">{{ getProfileInitial() }}</span>
+        <span class="header-profile-copy">
+          <strong>{{ getProfileName() }}</strong>
+          <span>Profile</span>
+        </span>
+        <span class="header-profile-chevron" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="m7 10 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</header>

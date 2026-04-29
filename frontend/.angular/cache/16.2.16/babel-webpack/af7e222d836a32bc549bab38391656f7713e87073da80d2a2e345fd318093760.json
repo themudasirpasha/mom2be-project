@@ -1,0 +1,1 @@
+{"ast":null,"code":"export const environment = {\n  production: false,\n  apiBaseUrl: 'https://mom2be-244972601130.asia-south1.run.app'\n};","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

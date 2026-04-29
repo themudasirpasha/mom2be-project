@@ -1,0 +1,66 @@
+<section class="alerts-page">
+  <div class="alerts-hero">
+    <div class="hero-copy">
+      <span class="hero-kicker">Alerts &amp; Reminders</span>
+      <h1>Important updates, now easy to scan.</h1>
+      <p>Risk states are color-coded so mothers and caregivers can quickly spot what needs attention.</p>
+
+      <div class="legend-row">
+        <div class="legend-card severity-high">
+          <span class="legend-icon">!</span>
+          <div>
+            <strong>HIGH</strong>
+            <span>Act immediately</span>
+          </div>
+        </div>
+        <div class="legend-card severity-medium">
+          <span class="legend-icon">&#8764;</span>
+          <div>
+            <strong>MEDIUM</strong>
+            <span>Review soon</span>
+          </div>
+        </div>
+        <div class="legend-card severity-low">
+          <span class="legend-icon">+</span>
+          <div>
+            <strong>LOW</strong>
+            <span>Routine guidance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-avatar">
+      <span>&#128276;</span>
+    </div>
+  </div>
+
+  <div *ngIf="alerts.length; else emptyAlerts" class="alerts-list">
+    <article *ngFor="let alert of alerts" class="alert-card" [ngClass]="'severity-' + getAlertSeverity(alert)">
+      <div class="alert-head">
+        <div class="alert-title-group">
+          <span class="alert-symbol">{{ getAlertSeveritySymbol(alert) }}</span>
+          <div>
+            <h2>{{ getAlertTitle(alert) }}</h2>
+            <p>{{ getAlertSubtitle(alert) }}</p>
+          </div>
+        </div>
+
+        <span class="alert-badge" [ngClass]="'severity-' + getAlertSeverity(alert)">
+          {{ getAlertSeverityLabel(alert) }}
+        </span>
+      </div>
+
+      <p *ngIf="getAlertDetails(alert)" class="alert-message">{{ getAlertDetails(alert) }}</p>
+
+      <div *ngFor="let entry of objectEntries(alert)" class="alert-row">
+        <span class="field-key">{{ formatKey(entry.key) }}</span>
+        <span class="field-value">{{ entry.value }}</span>
+      </div>
+    </article>
+  </div>
+
+  <ng-template #emptyAlerts>
+    <div class="empty-panel">No alerts are available right now.</div>
+  </ng-template>
+</section>

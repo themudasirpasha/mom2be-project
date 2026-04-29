@@ -1,0 +1,62 @@
+<svg width="280" height="220" viewBox="0 0 280 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="aiGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#EC4899;stop-opacity:0.1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="140" cy="110" r="100" fill="url(#aiGradient)"/>
+
+  <!-- Head/Bot -->
+  <rect x="100" y="60" width="80" height="85" rx="15" fill="#8B5CF6"/>
+  
+  <!-- Screen/Face on head -->
+  <rect x="110" y="75" width="60" height="55" rx="8" fill="#7C3AED" stroke="#A78BFA" stroke-width="2"/>
+  
+  <!-- Eyes - animated look -->
+  <circle cx="130" cy="90" r="6" fill="#FFD700"/>
+  <circle cx="150" cy="90" r="6" fill="#FFD700"/>
+  
+  <!-- Pupils -->
+  <circle cx="131" cy="90" r="3" fill="#1A1A1A"/>
+  <circle cx="151" cy="90" r="3" fill="#1A1A1A"/>
+  
+  <!-- Smile line -->
+  <path d="M130 105 Q140 110 150 105" stroke="#FFD700" stroke-width="2" fill="none" stroke-linecap="round"/>
+  
+  <!-- Visual feedback lines -->
+  <line x1="120" y1="115" x2="135" y2="115" stroke="#C084FC" stroke-width="2" stroke-linecap="round"/>
+  <line x1="145" y1="115" x2="160" y2="115" stroke="#C084FC" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Body/Antenna holders -->
+  <rect x="105" y="140" width="70" height="40" rx="10" fill="#7C3AED"/>
+  
+  <!-- Left antenna -->
+  <path d="M125 140 Q120 120 125 100" stroke="#A78BFA" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <circle cx="125" cy="95" r="5" fill="#FFD700"/>
+  
+  <!-- Right antenna -->
+  <path d="M155 140 Q160 120 155 100" stroke="#A78BFA" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <circle cx="155" cy="95" r="5" fill="#FFD700"/>
+  
+  <!-- Sound waves (animated feel) -->
+  <path d="M95 110 Q85 120 95 130" stroke="#C084FC" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+  <path d="M185 110 Q195 120 185 130" stroke="#C084FC" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+  
+  <!-- Buttons on body -->
+  <circle cx="130" cy="160" r="4" fill="#FFD700"/>
+  <circle cx="150" cy="160" r="4" fill="#FFD700"/>
+  
+  <!-- Wheels/Base -->
+  <circle cx="120" cy="180" r="8" fill="#6D28D9" stroke="#A78BFA" stroke-width="2"/>
+  <circle cx="160" cy="180" r="8" fill="#6D28D9" stroke="#A78BFA" stroke-width="2"/>
+  <rect x="110" y="175" width="60" height="8" rx="4" fill="#6D28D9"/>
+  
+  <!-- Floating sparkles -->
+  <circle cx="70" cy="70" r="3" fill="#FFD700" opacity="0.7"/>
+  <circle cx="210" cy="85" r="2.5" fill="#FFD700" opacity="0.6"/>
+  <circle cx="65" cy="140" r="2" fill="#EC4899" opacity="0.5"/>
+  <circle cx="215" cy="155" r="2.5" fill="#EC4899" opacity="0.6"/>
+</svg>

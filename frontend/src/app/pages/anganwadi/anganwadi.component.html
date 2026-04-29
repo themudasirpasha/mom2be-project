@@ -1,0 +1,84 @@
+<section class="premium-page anganwadi-theme">
+  <div class="hero-panel">
+    <div class="hero-copy">
+      <span class="hero-kicker">Community Care</span>
+      <h1>{{ 'anganwadi' | translate }}</h1>
+      <p>Your nearby support network, presented in a softer and more helpful layout for quick access to names, notes, and local help.</p>
+    </div>
+    <div class="hero-badge">
+      <span class="hero-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 21s-7-4.3-7-10a4 4 0 0 1 7-2.3A4 4 0 0 1 19 11c0 5.7-7 10-7 10Z" />
+        </svg>
+      </span>
+      <span class="hero-pill">{{ data.length || 0 }} updates</span>
+    </div>
+  </div>
+
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="loading-container">
+    <div class="loading-header">
+      <span class="loading-title">Loading Anganwadi centers…</span>
+    </div>
+
+    <div class="agents-processing">
+      <div *ngFor="let agent of processingAgents" class="agent-step" [ngClass]="{'active': agent.active, 'completed': agent.completed}">
+        <div class="agent-status">
+          <span *ngIf="agent.completed" class="status-icon completed">✓</span>
+          <span *ngIf="!agent.completed && agent.active" class="status-icon active">
+            <span class="spinner"></span>
+          </span>
+          <span *ngIf="!agent.completed && !agent.active" class="status-icon pending">○</span>
+        </div>
+        <span class="agent-label">{{ agent.label }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!isLoading && data.length; else noAnganwadiData" class="premium-grid">
+    <article *ngFor="let item of data" class="feature-card">
+      <div class="feature-header">
+        <div>
+          <div class="feature-eyebrow">Support Contact</div>
+          <h2>{{ getPrimaryText(item) | multilineText }}</h2>
+          <p class="rich-text">{{ getSecondaryText(item) | multilineText }}</p>
+        </div>
+        <span class="feature-chip">{{ getAccentText(item) }}</span>
+      </div>
+
+      <div *ngIf="isObject(item)" class="detail-panel">
+        <div *ngFor="let entry of objectEntries(item)" class="detail-row">
+          <span class="detail-key">{{ formatKey(entry.key) }}</span>
+
+          <ng-container *ngIf="isArray(entry.value); else scalarValue">
+            <div class="tag-row">
+              <span *ngFor="let nestedItem of entry.value" class="soft-tag">{{ nestedItem }}</span>
+            </div>
+          </ng-container>
+
+          <ng-template #scalarValue>
+            <span class="detail-value rich-text">{{ entry.value | multilineText }}</span>
+          </ng-template>
+        </div>
+      </div>
+
+      <div *ngIf="!isObject(item)" class="message-panel rich-text">
+        {{ item | multilineText }}
+      </div>
+    </article>
+  </div>
+
+  <ng-template #noAnganwadiData>
+    <article class="empty-state">
+      <div class="empty-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 3l1.6 4.2L18 9l-4.4 1.8L12 15l-1.6-4.2L6 9l4.4-1.8L12 3Z" />
+          <path d="M5 12l.9 2.4L8 15.2l-2.1.8L5 18l-.9-2.4L2 14.4l2.1-.8L5 12Z" />
+          <path d="M18.4 13.2l.8 2.2 1.8.7-1.8.7-.8 2.2-.8-2.2-1.8-.7 1.8-.7.8-2.2Z" />
+        </svg>
+      </div>
+      <h2>No Anganwadi updates yet</h2>
+      <p>Local center details and support information will appear here when available.</p>
+    </article>
+  </ng-template>
+</section>

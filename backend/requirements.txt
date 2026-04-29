@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+google-generativeai
+python-dotenv
+firebase-admin
+pydantic
+apscheduler==3.10.4
+requests
+google-auth
+google-api-python-client
+google-auth-httplib2
+google-cloud-aiplatform
+google-cloud-firestore
+python-multipart
+twilio

@@ -1,0 +1,20 @@
+# Backend secrets
+backend/.env
+backend/credentials.json
+backend/calendar-credentials.json
+backend/token.json
+backend/__pycache__/
+backend/*.pyc
+backend/venv/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/environments/environment.prod.ts
+
+# General
+*.log
+.DS_Store
+__pycache__/
+*.pyc

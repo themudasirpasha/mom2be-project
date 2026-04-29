@@ -1,0 +1,270 @@
+.lab-report-theme .hero-panel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  padding: 2rem 1.8rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  background: linear-gradient(135deg, rgba(143, 106, 255, 0.18), rgba(255, 226, 96, 0.16));
+}
+
+.lab-report-theme .hero-illustration {
+  flex: 1 1 360px;
+  display: block;
+  margin: 0 auto 1.4rem;
+  max-width: 520px;
+  text-align: center;
+}
+
+.lab-report-theme .hero-illustration img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.lab-report-theme .hero-copy {
+  max-width: 42rem;
+}
+
+.lab-report-theme .hero-badge {
+  margin-top: 0;
+  align-self: flex-start;
+}
+
+.lab-report-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 1.5rem;
+}
+
+.upload-card,
+.reports-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.upload-body {
+  display: grid;
+  gap: 1rem;
+}
+
+.file-input-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  border-radius: 18px;
+  border: 1px solid rgba(92, 65, 171, 0.16);
+  background: #fff;
+  cursor: pointer;
+}
+
+.file-input-label input {
+  display: none;
+}
+
+.primary-button {
+  width: fit-content;
+  padding: 0.95rem 1.4rem;
+  border: none;
+  border-radius: 999px;
+  background: #6d44ff;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.primary-button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.form-error {
+  color: #d9534f;
+}
+
+.form-success {
+  color: #2f855a;
+}
+
+.suggestion-panel {
+  padding: 1.25rem 1.3rem;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(109, 68, 255, 0.08), rgba(255, 226, 96, 0.12));
+  border: 1px solid rgba(109, 68, 255, 0.12);
+}
+
+.suggestion-panel h3 {
+  margin: 0.35rem 0 0.6rem;
+  color: #312e81;
+}
+
+.suggestion-panel p {
+  margin: 0;
+  color: #4b5563;
+  line-height: 1.7;
+  white-space: pre-line;
+}
+
+.report-item strong,
+.report-item span {
+  white-space: pre-line;
+  line-height: 1.7;
+}
+
+.report-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.report-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 16px 32px rgba(88, 66, 143, 0.08);
+}
+
+.report-item strong {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.report-item span {
+  font-size: 0.92rem;
+  color: #6b7280;
+}
+
+.report-link {
+  font-weight: 700;
+  color: #6d44ff;
+  text-decoration: none;
+}
+
+.loading-panel,
+.empty-panel {
+  padding: 1.5rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(92, 65, 171, 0.08);
+}
+
+.loading-container {
+  padding: 1.5rem;
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(245, 240, 255, 0.9));
+  border: 1px solid rgba(109, 68, 255, 0.12);
+  box-shadow: 0 18px 34px rgba(88, 66, 143, 0.08);
+}
+
+.loading-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.loading-title {
+  font-weight: 800;
+  color: #6d44ff;
+  text-transform: uppercase;
+  font-size: 0.88rem;
+  letter-spacing: 0.06em;
+}
+
+.agents-processing {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.agent-step {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.85rem 1rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(109, 68, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.agent-step.active {
+  background: rgba(109, 68, 255, 0.1);
+  border-color: rgba(109, 68, 255, 0.24);
+}
+
+.agent-step.completed {
+  background: rgba(47, 133, 90, 0.1);
+  border-color: rgba(47, 133, 90, 0.2);
+}
+
+.agent-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.status-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-weight: 800;
+}
+
+.status-icon.completed {
+  color: #fff;
+  background: #2f855a;
+}
+
+.status-icon.active {
+  background: rgba(109, 68, 255, 0.14);
+}
+
+.status-icon.pending {
+  color: #9ca3af;
+}
+
+.agent-label {
+  color: #4b5563;
+  font-weight: 600;
+}
+
+.spinner {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid rgba(109, 68, 255, 0.25);
+  border-top-color: #6d44ff;
+  animation: spin 0.8s linear infinite;
+}
+
+.empty-panel h2 {
+  margin-bottom: 0.5rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 960px) {
+  .lab-report-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,159 @@
+<section class="brief-shell">
+  <div class="brief-layout">
+    <div class="brief-main">
+      <div class="brief-hero">
+        <a class="back-button" routerLink="/dashboard" aria-label="Back to dashboard">
+          <span aria-hidden="true">&#8592;</span>
+        </a>
+        <div class="hero-copy">
+          <span class="hero-kicker">Care coordination</span>
+          <h1>ASHA Brief</h1>
+          <p>Create a field-ready note with pregnancy context, this week's timing, and the most important follow-ups for the next visit.</p>
+        </div>
+        <div class="hero-badge">
+          <strong>{{ getMotherName() }}</strong>
+          <span>Week {{ getWeek() || 'Updating' }}</span>
+        </div>
+      </div>
+
+      <div class="composer-card">
+        <div class="composer-head">
+          <div>
+            <span class="section-title">Brief request</span>
+            <h2>What should this ASHA brief focus on?</h2>
+          </div>
+          <span class="status-pill">{{ getLanguage() }}</span>
+        </div>
+
+        <div class="suggestion-row">
+          <button *ngFor="let prompt of suggestionPrompts" type="button" class="suggestion-chip" (click)="usePrompt(prompt)">
+            {{ prompt }}
+          </button>
+        </div>
+
+        <div class="input-stack">
+          <textarea
+            [(ngModel)]="message"
+            rows="5"
+            class="brief-input"
+            [disabled]="isProcessing"
+            placeholder="Example: prepare a home-visit brief with nutrition follow-ups, medicine adherence, and danger signs to review."></textarea>
+
+          <div class="composer-actions">
+            <button
+              type="button"
+              class="mic-button"
+              (click)="toggleVoiceInput()"
+              [disabled]="isProcessing || !voiceSupported"
+              [attr.aria-pressed]="isListening">
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M12 3a4 4 0 0 1 4 4v5a4 4 0 0 1-8 0V7a4 4 0 0 1 4-4Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M6 12a6 6 0 0 0 12 0M12 18v3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </button>
+
+            <button
+              type="button"
+              class="generate-button"
+              (click)="send()"
+              [disabled]="isProcessing || !message.trim()">
+              <span>Generate brief</span>
+            </button>
+          </div>
+
+          <div class="voice-status" *ngIf="voiceStatus">{{ voiceStatus }}</div>
+          <div class="error-banner" *ngIf="requestError">{{ requestError }}</div>
+        </div>
+      </div>
+
+      <div class="result-card">
+        <div class="result-head">
+          <div>
+            <span class="section-title">Generated note</span>
+            <h2>Visit briefing for {{ getMotherName() }}</h2>
+          </div>
+          <span class="status-pill" *ngIf="lastUpdated">Updated {{ lastUpdated }}</span>
+        </div>
+
+        <div *ngIf="isProcessing" class="processing-message">
+          <div class="processing-header">
+            <span class="processing-title">Preparing ASHA brief...</span>
+          </div>
+          <div class="agents-processing">
+            <div *ngFor="let agent of processingAgents" class="agent-step" [ngClass]="{'active': agent.active, 'completed': agent.completed}">
+              <div class="agent-status">
+                <span *ngIf="agent.completed" class="status-icon completed">&#10003;</span>
+                <span *ngIf="!agent.completed && agent.active" class="status-icon active">
+                  <span class="spinner"></span>
+                </span>
+                <span *ngIf="!agent.completed && !agent.active" class="status-icon pending">&#9675;</span>
+              </div>
+              <span class="agent-label">{{ agent.label }}</span>
+            </div>
+          </div>
+        </div>
+
+        <ng-container *ngIf="!isProcessing">
+          <div *ngIf="hasBrief(); else emptyBrief" class="brief-sections">
+            <article *ngFor="let section of briefSections" class="brief-section">
+              <h3>{{ section.title }}</h3>
+              <p>{{ section.body }}</p>
+            </article>
+          </div>
+
+          <div *ngIf="hasBrief() && !briefSections.length" class="brief-fallback">
+            <p>{{ briefText }}</p>
+          </div>
+        </ng-container>
+
+        <ng-template #emptyBrief>
+          <div class="empty-state">
+            <div class="empty-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <rect x="5" y="4.5" width="11.5" height="15" rx="2.4" />
+                <path d="M8.2 8.2h5.2M8.2 11.3h5.2M8.2 14.4h3.5" />
+                <path d="m16 8.4 1.4 1.4 2.6-2.8" />
+              </svg>
+            </div>
+            <h3>No brief yet</h3>
+            <p>Start with a prompt above to generate a concise handoff note for the ASHA visit.</p>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+
+    <aside class="brief-side">
+      <div class="support-card">
+        <span class="section-title">Visit context</span>
+        <div class="context-grid">
+          <div class="context-item">
+            <span class="context-label">Mother</span>
+            <strong>{{ getMotherName() }}</strong>
+          </div>
+          <div class="context-item">
+            <span class="context-label">Language</span>
+            <strong>{{ getLanguage() }}</strong>
+          </div>
+          <div class="context-item">
+            <span class="context-label">Pregnancy week</span>
+            <strong>{{ getWeek() || 'Updating' }}</strong>
+          </div>
+          <div class="context-item">
+            <span class="context-label">Session</span>
+            <strong>ASHA Brief</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="support-card checklist-card">
+        <span class="section-title">Suggested brief topics</span>
+        <div class="checklist">
+          <div class="check-item">Nutrition and hydration reminders</div>
+          <div class="check-item">Medicine and supplement adherence</div>
+          <div class="check-item">Danger signs that need escalation</div>
+          <div class="check-item">Family or community support follow-up</div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
